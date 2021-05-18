@@ -1,3 +1,5 @@
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class TaxCalculator {
@@ -69,7 +71,7 @@ public class TaxCalculator {
                 output.add(result);
             }
             double totalPrice = tax.calculateTotalPrice(products);
-            double totalTax = tax.calculateTotalTax(products);
+            double totalTax = tax.round(tax.calculateTotalTax(products));
             PrintReceipt(output,totalPrice,totalTax);
         }
 
@@ -79,7 +81,11 @@ public class TaxCalculator {
         for(int i=0; i< result.size(); i++) {
             System.out.println(result.get(i));
         }
+
         System.out.println("Tax:  " + totalTax);
-        System.out.println("Total:  " + totalPrice);
+        DecimalFormat df = new DecimalFormat("#.##");
+        df.setRoundingMode(RoundingMode.UP);
+        String str1 = df.format(totalPrice); // 0.91239
+        System.out.println("Total:  " + str1);
     }
 }

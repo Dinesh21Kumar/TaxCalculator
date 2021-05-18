@@ -1,4 +1,6 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class CalculateTax {
@@ -8,9 +10,14 @@ public class CalculateTax {
 
     public String getReceipt(Product product) {
             double newPrice = product.price + calculateTax(product);
-            product.setPrice(newPrice);
             String receipt = "";
-            receipt += product.count + product.info + ": " + newPrice;
+            if(newPrice != product.price) {
+                product.setPrice( newPrice);
+                receipt += product.count + product.info + ": " + newPrice;
+            }
+            else {
+                receipt += product.count + product.info + ": " + product.price;
+            }
             return receipt;
     }
 
@@ -45,6 +52,10 @@ public class CalculateTax {
         else {
             return 0f;
         }
+    }
+
+    public double round(double value) {
+       return 0.05 *(Math.ceil(value * 100/5));
     }
 
 

@@ -1,7 +1,7 @@
-ProductType.java
- ProductType
 Product.java
  Product
+ProductType.java
+ ProductType
 TaxCalculator.java
  TaxCalculator
 CalculateTax.java
