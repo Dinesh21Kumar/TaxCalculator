@@ -82,10 +82,9 @@ public class TaxCalculator {
             System.out.println(result.get(i));
         }
 
-        System.out.println("Tax:  " + totalTax);
         DecimalFormat df = new DecimalFormat("#.##");
-        df.setRoundingMode(RoundingMode.UP);
-        String str1 = df.format(totalPrice); // 0.91239
-        System.out.println("Total:  " + str1);
+        df.setRoundingMode(RoundingMode.HALF_UP);
+        System.out.println("Tax:  " + totalTax);
+        System.out.println("Total:  " + df.format(totalPrice));
     }
 }

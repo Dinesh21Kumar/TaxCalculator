@@ -2,7 +2,7 @@ Product.java
  Product
 ProductType.java
  ProductType
-TaxCalculator.java
- TaxCalculator
 CalculateTax.java
  CalculateTax
+TaxCalculator.java
+ TaxCalculator

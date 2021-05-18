@@ -9,7 +9,7 @@ public class CalculateTax {
 
 
     public String getReceipt(Product product) {
-            double newPrice = product.price + calculateTax(product);
+            double newPrice = product.price + round(calculateTax(product));
             String receipt = "";
             if(newPrice != product.price) {
                 product.setPrice( newPrice);
